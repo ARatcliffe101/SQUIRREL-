@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PromptVault Admin UI</title>
+  <link rel="stylesheet" href="/ui/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <p class="h1">PromptVault — Admin UI</p>
+        <p class="muted" style="margin: 6px 0 0;">Served from the API server at <code>/ui</code>.</p>
+      </div>
+      <div class="badge" id="statusBadge">Not logged in</div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Connection settings</h2>
+<div class="row" style="margin-bottom:10px;">
+  <label class="muted">API Base URL</label>
+  <input id="apiBase" placeholder="http://localhost:8787" />
+  <div class="actions">
+    <button id="saveBaseBtn" class="secondary small">Save</button>
+    <button id="testBtn" class="secondary small">Test connection</button>
+  </div>
+  <div class="muted">Tip: set this to your server URL.</div>
+</div>
+<hr />
+<h2>Login</h2>
+        <div class="row"><label class="muted">Email</label>
+          <input id="email" placeholder="admin@example.com" />
+          <label class="muted">Password</label>
+          <input id="password" type="password" placeholder="admin1234" />
+          <button id="loginBtn">Log in</button>
+          <button id="logoutBtn" class="secondary">Log out</button>
+          <div class="error" id="loginError"></div>
+          <div class="muted">Default admin (first run): <code>admin@example.com</code> / <code>admin1234</code></div>
+        </div>
+        <hr />
+        <h2>Quick actions</h2>
+        <div class="actions">
+          <button id="purgeBtn" class="danger small">Purge deleted &gt; 30d</button>
+          <button id="refreshBtn" class="secondary small">Refresh data</button>
+        </div>
+        <div class="muted" style="margin-top:8px;">Admin endpoints require an <code>ADMIN</code> account.</div>
+      </div>
+
+      <div style="display:grid; gap:16px;">
+        <div class="card">
+          <h2>Users</h2>
+          <div class="row" style="margin-bottom:10px;">
+            <input id="newUserEmail" placeholder="new.user@example.com" />
+            <input id="newUserPassword" placeholder="password (min 8 chars)" />
+            <select id="newUserRole">
+              <option value="USER">USER</option>
+              <option value="ADMIN">ADMIN</option>
+            </select>
+            <button id="createUserBtn">Create user</button>
+            <div class="error" id="usersError"></div>
+          </div>
+          <div class="list" id="usersList"></div>
+        </div>
+
+        <div class="card">
+          <h2>Categories & Sections</h2>
+          <div class="row" style="margin-bottom:10px;">
+            <input id="newCategoryName" placeholder="New category name" />
+            <button id="createCategoryBtn">Create category</button>
+            <div class="error" id="catsError"></div>
+          </div>
+          <div class="list" id="catsList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/ui/app.js"></script>
+</body>
+</html>

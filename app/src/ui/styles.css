@@ -1,0 +1,5 @@
+:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0b0f14; color: #e6edf3; }
+input, textarea, button { font: inherit; }
+button { cursor: pointer; }
